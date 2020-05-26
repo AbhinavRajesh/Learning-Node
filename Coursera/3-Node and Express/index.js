@@ -10,12 +10,16 @@ const hostname = "localhost";
 
 //Routes
 const dishRouter = require("./routes/dishRouter");
+const promoRouter = require("./routes/promoRouter");
+const leaderRouter = require("./routes/leaderRouter");
 
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 
 app.use(express.static(__dirname + "/public"));
 app.use("/dishes", dishRouter);
+app.use("/promotions", promoRouter);
+app.use("/leaders", leaderRouter);
 
 app.use((req, res, next) => {
   res.statusCode = 200;
